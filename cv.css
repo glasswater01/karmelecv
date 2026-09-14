@@ -1,0 +1,107 @@
+body{
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #111;
+  background-image: url("./media/cv-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.back-button{
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  color: #1a73e8;
+  text-decoration: underline;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.cv-stage{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.cv-content{
+  position: relative;
+  max-width: none;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 80px 60px;
+  border-radius: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+.cv-text{
+  flex: 1;
+  min-width: 0;
+}
+
+.cv-content h1{
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0 0 16px 0;
+  text-transform: lowercase;
+}
+
+.cv-location{
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: #111;
+}
+
+.cv-bio{
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+}
+
+.cv-contact{
+  font-size: 14px;
+  margin-bottom: 36px;
+}
+
+.cv-content h2{
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a73e8;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.cv-item{
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.cv-item a{
+  color: #1a1aff;
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cv-item a:hover{
+  text-decoration: underline;
+}
+
+@media (max-width: 700px){
+  .cv-content{
+    flex-direction: column-reverse;
+    padding: 100px 24px 60px;
+    gap: 24px;
+  }
+  .cv-content h1{
+    font-size: 26px;
+  }
+}
