@@ -8,10 +8,16 @@ body{
   top: 15px;
   left: 15px;
   z-index: 1000;
-  color: #1a73e8;
-  text-decoration: underline;
+  color: #1a1aff;
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: none;
   font-size: 16px;
   font-family: Arial, sans-serif;
+}
+
+.back-button:hover{
+  text-decoration: underline;
 }
 
 .project-stage{
