@@ -27,6 +27,16 @@ body{
   padding: 0;
 }
 
+.cv-contact a{
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.cv-contact a:hover{
+  text-decoration: underline;
+}
+
 .cv-content{
   position: relative;
   max-width: none;
