@@ -28,8 +28,9 @@ body{
 }
 
 .cv-contact a{
-  color: inherit;
-  font-size: inherit;
+  color: #1a1aff;
+  font-style: italic;
+  font-weight: 600;
   text-decoration: none;
 }
 
