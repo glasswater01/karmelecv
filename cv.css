@@ -9,6 +9,22 @@ body{
   background-attachment: fixed;
   min-height: 100vh;
 }
+.gallery-link{
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 1000;
+  color: #1a1aff;
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+.gallery-link:hover{
+  text-decoration: underline;
+}
 
 .back-button{
   position: fixed;
