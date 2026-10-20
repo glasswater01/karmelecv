@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Altea</title>
+  <link rel="stylesheet" href="altea.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-button">←</a>
+
+  <button class="arrow arrow-left" id="prev" aria-label="Anterior">←</button>
+
+  <main class="slider">
+    <img id="slide" alt="Altea" style="display:none">
+    <video id="vid" controls playsinline muted loop style="display:none"></video>
+  </main>
+
+  <button class="arrow arrow-right" id="next" aria-label="Siguiente">→</button>
+
+  <script>
+    const images = [
+      "./altea-1.mp4",
+      "./altea-2.jpg",
+      "./altea-3.jpg",
+      "./altea-4.jpg"
+    ];
+    let current = 0;
+    const slide = document.getElementById("slide");
+    const vid = document.getElementById("vid");
+
+    function show(i){
+      current = (i + images.length) % images.length;
+      const src = images[current];
+      if (src.endsWith(".mp4")) {
+        slide.style.display = "none";
+        vid.style.display = "block";
+        vid.src = src;
+        vid.play().catch(() => {});
+      } else {
+        vid.pause();
+        vid.style.display = "none";
+        slide.style.display = "block";
+        slide.src = src;
+      }
+    }
+
+    document.getElementById("next").addEventListener("click", () => show(current + 1));
+    document.getElementById("prev").addEventListener("click", () => show(current - 1));
+    slide.addEventListener("click", () => show(current + 1));
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") show(current + 1);
+      if (e.key === "ArrowLeft") show(current - 1);
+    });
+
+    let startX = null;
+    document.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; });
+    document.addEventListener("touchend", (e) => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    show(0);
+
+    images.forEach(src => { if (!src.endsWith(".mp4")) { const im = new Image(); im.src = src; } });
+  </script>
+
+</body>
+</html>
