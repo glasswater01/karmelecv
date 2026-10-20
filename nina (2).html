@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Niña</title>
+  <link rel="stylesheet" href="nina.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-button">←</a>
+
+  <button class="arrow arrow-left" id="prev" aria-label="Anterior">←</button>
+
+  <main class="slider">
+    <img id="slide" src="./nina-1.jpg" alt="La Niña">
+  </main>
+
+  <button class="arrow arrow-right" id="next" aria-label="Siguiente">→</button>
+
+  <script>
+    const images = [
+      "./nina-1.jpg",
+      "./nina-2.jpg",
+      "./nina-3.jpg",
+      "./nina-4.jpg",
+      "./nina-5.jpg",
+      "./nina-6.jpg",
+      "./nina-7.jpg",
+      "./nina-8.jpg",
+      "./nina-9.jpg",
+      "./nina-10.jpg",
+      "./nina-11.jpg"
+    ];
+    let current = 0;
+    const slide = document.getElementById("slide");
+
+    function show(i){
+      current = (i + images.length) % images.length;
+      slide.src = images[current];
+    }
+
+    document.getElementById("next").addEventListener("click", () => show(current + 1));
+    document.getElementById("prev").addEventListener("click", () => show(current - 1));
+    slide.addEventListener("click", () => show(current + 1));
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") show(current + 1);
+      if (e.key === "ArrowLeft") show(current - 1);
+    });
+
+    let startX = null;
+    document.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; });
+    document.addEventListener("touchend", (e) => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    images.forEach(src => { const im = new Image(); im.src = src; });
+  </script>
+
+</body>
+</html>
