@@ -1,0 +1,86 @@
+body{
+  margin: 0;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.back-button{
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  color: #1a1aff;
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.back-button:hover{
+  text-decoration: underline;
+}
+
+.slider{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider img{
+  max-width: 78vw;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  cursor: pointer;
+}
+
+.slider video{
+  /* mismo alto que la primera foto (3:4 dentro de 78vw x 80vh) */
+  height: min(80vh, calc(78vw * 4 / 3));
+  width: auto;
+  max-width: 78vw;
+  object-fit: contain;
+  display: block;
+  cursor: pointer;
+}
+
+.arrow{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  color: #1a1aff;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 22px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  z-index: 900;
+}
+
+.arrow:hover{
+  text-decoration: underline;
+}
+
+.arrow-left{ left: 10px; }
+.arrow-right{ right: 10px; }
+
+@media (max-width: 700px){
+  .slider img{
+    max-width: 92vw;
+    max-height: 70vh;
+  }
+  .slider video{
+    height: min(70vh, calc(92vw * 4 / 3));
+    max-width: 92vw;
+  }
+  .arrow{
+    font-size: 20px;
+    padding: 10px 8px;
+  }
+}
